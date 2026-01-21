@@ -26,3 +26,10 @@ class BasePage:
         self.wait.until(EC.element_to_be_clickable(locator))
         self.driver.execute_script("arguments[0].click();", element)
 
+    def is_visible(self, locator):
+        try:
+            return self.wait.until(
+                EC.visibility_of_element_located(locator)
+            ).is_displayed()
+        except:
+            return False

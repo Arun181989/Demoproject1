@@ -1,36 +1,19 @@
-  name: Selenium PyTest Automation
+name: Run PyTest
 
-  on:
-    push:
-      branches: [ "main" ]
-    pull_request:
-      branches: [ "main" ]
+on: [push, pull_request]
 
-  jobs:
-    test:
-      runs-on: windows-latest
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        browser: [chrome, firefox]
 
-      steps:
-        - name: Checkout code
-          uses: actions/checkout@v4
-
-        - name: Set up Python
-          uses: actions/setup-python@v5
-          with:
-            python-version: '3.13'
-
-        - name: Install dependencies
-          run: |
-            python -m pip install --upgrade pip
-            pip install -r requirements.txt
-
-        - name: Run PyTest with HTML report
-          run: |
-            pytest -v --html=report.html --self-contained-html
-
-        - name: Upload HTML report
-          uses: actions/upload-artifact@v4
-          if: always()
-          with:
-            name: PyTest HTML Report
-            path: report.html
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.11"
+    - run: pip install -r requirements.txt
+    - run: pytest --html=reports/report.html

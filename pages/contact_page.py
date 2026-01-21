@@ -1,5 +1,8 @@
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
+from pages.locators import ContactPageLocators
+
+
 
 class ContactPage(BasePage):
 
@@ -9,7 +12,7 @@ class ContactPage(BasePage):
     SUBMIT = (By.XPATH, "//button[contains(text(),'Send') or contains(text(),'Submit')]")
 
     def submit_form(self, name, email, message):
-        self.enter_text(self.NAME, name)
-        self.enter_text(self.EMAIL, email)
-        self.enter_text(self.MESSAGE, message)
-        self.click(self.SUBMIT)
+        self.type(ContactPageLocators.NAME_INPUT, name)
+        self.type(ContactPageLocators.EMAIL_INPUT, email)
+        self.type(ContactPageLocators.MESSAGE_TEXTAREA, message)
+        self.click(ContactPageLocators.SUBMIT_BUTTON)

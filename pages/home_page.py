@@ -3,10 +3,15 @@ from pages.base_page import BasePage
 
 class HomePage(BasePage):
 
+    HOME_URL = "https://ekalya.in/"
     PAGE_TITLE = "ekayla"
+
     CONTACT_MENU = (By.XPATH, "//a[contains(text(),'Contact')]")
     HEADER = (By.TAG_NAME, "header")
     MENU_ITEM = lambda self, name: (By.LINK_TEXT, name)
+
+    def open(self):
+        self.driver.get(self.HOME_URL)
 
     def is_home_page_loaded(self):
         return self.PAGE_TITLE in self.get_title().lower()

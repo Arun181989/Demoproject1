@@ -13,3 +13,4 @@ def test_courses_list_displayed(driver):
 
     for course in course_names:
         assert course.strip() != ""
+
