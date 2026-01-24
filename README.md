@@ -20,36 +20,31 @@ This framework is designed to demonstrate **real-world automation practices** us
 ---
 
 ## 📂 Project StructureDemoproject1/
-│
+Demoproject1/
 ├── .github/workflows/
-│ └── pytest.yml # CI pipeline configuration
-│
-├── pages/ # Page Object classes
-│ ├── base_page.py
-│ ├── home_page.py
-│ ├── contact_page.py
-│ ├── courses_page.py
-│
-├── tests/ # Test cases
-│ ├── test_home.py
-│ ├── test_navigation.py
-│ ├── test_courses.py
-│ ├── test_contact_form.py
-│ └── test_contact_form_ddt.py
-│
-├── data/ # Test data
-│ ├── contact_data.csv
-│ └── contact_data.xlsx
-│
+│   └── pytest.yml
+├── docs/
+├── pages/
+│   ├── base_page.py
+│   ├── locators.py
+│   ├── home_page.py
+│   ├── contact_page.py
+│   ├── courses_page.py
+│   └── footer_page.py
+├── tests/
+│   ├── test_TC_HOME_01.py
+│   ├── test_TC_NAV_01.py
+│   ├── test_TC_COURSE_01.py
+│   ├── test_TC_FORM_01.py
+│   └── test_TC_FOOTER_01.py
 ├── utils/
-│ └── data_reader.py # CSV / Excel reader utility
-│
-├── reports/ # HTML reports & screenshots (ignored in Git)
-│
-├── conftest.py # PyTest fixtures
-├── pytest.ini # PyTest configuration
-├── requirements.txt # Dependencies
-├── .gitignore
+│   ├── data_reader.py
+│   └── performance_logger.py
+├── data/
+├── reports/
+├── conftest.py
+├── pytest.ini
+├── requirements.txt
 └── README.md
 
 
